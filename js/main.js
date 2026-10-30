@@ -2,10 +2,9 @@
    Ita Liani — portfolio interactions
    ========================================================= */
 
-// TODO: replace these two values with the exact profile URLs.
 const LINKS = {
-  linkedin: "https://www.linkedin.com/search/results/people/?keywords=Ita%20Liani",
-  upwork: "https://www.upwork.com/"
+  linkedin: "https://www.linkedin.com/in/ita-liani/",
+  upwork: "https://www.upwork.com/freelancers/~014712124a23782c28"
 };
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
