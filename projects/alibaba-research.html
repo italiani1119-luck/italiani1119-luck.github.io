@@ -3,18 +3,613 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alibaba conversion study — moved | Ita Liani</title>
-<meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://italiani1119-luck.github.io/projects/">
-<meta http-equiv="refresh" content="0; url=./#alibaba">
-<style>
-  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F6F2E9;color:#17211F;font-family:Georgia,serif;text-align:center;padding:24px}
-  a{color:#7A5F3B}
-</style>
+<title>Alibaba conversion study — where a high-value order stalls | Ita Liani</title>
+<meta name="description" content="A bilingual usability study of Alibaba.com for Indonesian buyers: four journey stages, 44 annotated captures, a 69.6% freight share, and six fixes that would keep an IDR 295M order moving.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://italiani1119-luck.github.io/projects/alibaba-research.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://italiani1119-luck.github.io/projects/alibaba-research.html">
+<meta property="og:title" content="Alibaba conversion study — where a high-value order stalls | Ita Liani">
+<meta property="og:description" content="A bilingual usability study of Alibaba.com for Indonesian buyers, with annotated evidence and six fixes that would keep the order moving.">
+<meta property="og:image" content="https://italiani1119-luck.github.io/assets/img/og-alibaba.png">
+<meta property="og:image:alt" content="Alibaba conversion study by Ita Liani">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alibaba conversion study — where a high-value order stalls | Ita Liani">
+<meta name="twitter:description" content="Four stages, 44 annotated captures, a 69.6% freight share, and six fixes that would keep an IDR 295M order moving.">
+<meta name="twitter:image" content="https://italiani1119-luck.github.io/assets/img/og-alibaba.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/project.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Alibaba conversion study for Indonesian buyers",
+  "url": "https://italiani1119-luck.github.io/projects/alibaba-research.html",
+  "description": "Bilingual usability study of Alibaba.com covering search, product evaluation, checkout, payment, and order creation for an Indonesian procurement buyer.",
+  "author": { "@type": "Person", "name": "Ita Liani", "url": "https://italiani1119-luck.github.io/" },
+  "about": ["Usability research", "Conversion research", "Procurement", "Cross-border e-commerce", "Alibaba"]
+}
+</script>
 </head>
 <body>
-<p>The Alibaba conversion study now sits with the 1688 RFQ on one page.<br>
-<a href="./#alibaba">Continue to the project</a>.</p>
-<script>location.replace("./#alibaba");</script>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="brand" href="../index.html#top" aria-label="Ita Liani — home">
+      <span class="brand__mark" aria-hidden="true">IL</span>
+      <span class="brand__text">
+        <strong>Ita Liani</strong>
+        <small>Executive support · Procurement · Automation</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#case-studies">Case studies</a>
+      <a href="../index.html#samples">Samples</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="btn btn--sm nav__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+    </nav>
+
+    <a class="btn btn--sm header__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="pj-hero">
+    <div class="container">
+      <div class="pj-hero__grid">
+        <div>
+          <nav class="pj-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Portfolio</a>
+            <span aria-hidden="true">/</span>
+            <a href="../index.html#case-studies">Projects</a>
+            <span aria-hidden="true">/</span>
+            <span>Alibaba research</span>
+          </nav>
+
+          <p class="pj-eyebrow"><span class="status-dot" aria-hidden="true"></span> Freelance research · Alibaba.com · Indonesia · 2026</p>
+          <h1>The order was ready. <em>The landing cost wasn't.</em></h1>
+          <p class="pj-hero__lede">A bilingual usability study of Alibaba.com for Indonesian buyers. I ran a real headlamp procurement through search, evaluation, checkout, payment, and order creation — then mapped where a serious buyer stops.</p>
+
+          <div class="pj-hero__actions">
+            <a class="btn" href="#evidence">See the evidence
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#fixes">Read the fixes</a>
+          </div>
+        </div>
+
+        <figure class="pj-cover pj-cover--chart">
+          <div class="award-chart__head">
+            <span>Where the IDR 295.3M goes</span>
+            <span>50-set test</span>
+          </div>
+          <div class="award-row">
+            <span>Item</span>
+            <div class="award-track"><i style="--v:58.96%"></i></div>
+            <strong>174.1M</strong>
+          </div>
+          <div class="award-row is-win">
+            <span>Ship</span>
+            <div class="award-track"><i style="--v:41.04%"></i></div>
+            <strong>121.2M</strong>
+          </div>
+          <div class="study-total">
+            <span>Shipping vs item subtotal</span>
+            <strong>69.6%</strong>
+          </div>
+          <figcaption>Checkout total: IDR 295,281,706. The order was created, not paid.</figcaption>
+        </figure>
+      </div>
+
+      <div class="pj-metrics" aria-label="Project at a glance">
+        <div class="pj-metric"><strong>4</strong><span>journey stages audited</span></div>
+        <div class="pj-metric"><strong>3</strong><span>platforms compared</span></div>
+        <div class="pj-metric"><strong>69.6%</strong><span>freight vs item subtotal</span></div>
+        <div class="pj-metric"><strong>IDR 295M</strong><span>checkout left unpaid</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pj-toc" aria-label="Project sections">
+    <div class="container pj-toc__inner">
+      <a href="#brief">Brief</a>
+      <a href="#method">Method</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#findings">Findings</a>
+      <a href="#fixes">Fixes</a>
+      <a href="#impact">Impact</a>
+    </div>
+  </nav>
+
+  <section class="pj-section pj-section--first" id="brief">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">01 / Brief</p>
+        <div>
+          <h2>A real buyer, a real order, <em>a checkout that stalled.</em></h2>
+          <p class="pj-section__lede">I ran a live procurement need through Alibaba.com end to end — and through a second B2B platform for comparison — to see exactly where an Indonesian buyer slows down.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-prose">
+          <p>The need was concrete: <strong>100 pairs — 200 individual headlamp units — of Toyota Avanza 2013 front headlamp assemblies</strong>, delivered to Palembang, with exact fitment, a formal quotation, and a protected payment route. I used the Alibaba app with Indonesia as the delivery market and English as the interface.</p>
+          <p>I searched, shortlisted only <strong>Buy Now</strong> listings, compared supplier evidence, built the checkout, reviewed every local payment method, and created a wire-transfer order without paying it. The listing sold in <strong>50-set lots</strong>, so I tested the checkout at that minimum before committing to the full trial. The same task ran on Made-in-China; Amazon's international checkout served as a reference for how landed cost can be shown.</p>
+          <p>The order reached <strong>IDR 295.3M</strong>. Shipping alone was <strong>IDR 121.2M — 69.6% of the item subtotal</strong> — and the checkout did not say whether Indonesian duties and taxes were included. I stopped before payment. That pause is the finding.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="The buyer I represented">
+          <h3>The buyer I represented</h3>
+          <ul>
+            <li>Procurement decision-maker for a small automotive business.</li>
+            <li>100-pair trial; the listing sells in 50-set lots.</li>
+            <li>Needs fitment, side and pair quantity, OEM reference, and a written quote.</li>
+            <li>Will pay by a protected method — after the total is confirmed.</li>
+            <li>Won't pay without a landed-cost breakdown.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <p class="pj-note">Privacy: no personal data is published. Addresses, phone numbers, and payment fields are blurred or cropped; supplier identity was removed where it was not part of the finding.</p>
+    </div>
+  </section>
+
+  <section class="pj-section" id="method">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">02 / Method</p>
+        <div>
+          <h2>Four stages, <em>scored like a buyer would.</em></h2>
+          <p class="pj-section__lede">A task simulation plus heuristic scoring, so every friction point has evidence, a score, and a severity — not just an opinion.</p>
+        </div>
+      </div>
+
+      <div class="pj-stages">
+        <div class="pj-stage">
+          <p class="pj-stage__no">01</p>
+          <div>
+            <h3>Define a real requirement</h3>
+            <p>Product, quantity, destination, certifications, and deal-breakers — written before opening the app.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">02</p>
+          <div>
+            <h3>Search on both platforms</h3>
+            <p>Same keywords on Alibaba and Made-in-China, then OEM part numbers when the broad query failed.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">03</p>
+          <div>
+            <h3>Evaluate Buy Now listings only</h3>
+            <p>Only add-to-cart products qualified, so the evaluation tested an orderable path, not an inquiry.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">04</p>
+          <div>
+            <h3>Build the checkout</h3>
+            <p>Shipping, currency, every local payment method, processing fees, and order protection.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">05</p>
+          <div>
+            <h3>Create an unpaid order</h3>
+            <p>Wire transfer selected, order submitted, then the unpaid record inspected in My Orders.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">06</p>
+          <div>
+            <h3>Annotate and score</h3>
+            <p>Every friction point captured, scored 1–5, and ranked by whether it could stop payment.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="pj-kicker">Stage scorecard</p>
+      <div class="pj-table-wrap">
+        <table class="pj-table">
+          <caption>Scores from the study's stage reviews, 1–5. Averages are rounded to one decimal. The order stage was assessed qualitatively because its main problem was comprehension, not a missing feature.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">What was scored</th>
+              <th scope="col" class="num">Result</th>
+              <th scope="col">What it means</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Search</th>
+              <td>Relevance 4 · product cards 4 · language 3</td>
+              <td class="num">3.7 / 5</td>
+              <td class="muted">Good results after specificity; fitment still needs a supplier answer.</td>
+            </tr>
+            <tr>
+              <th scope="row">Evaluation</th>
+              <td>Details 4 · MOQ 2 · reviews 2 · supplier 4</td>
+              <td class="num">3.0 / 5</td>
+              <td class="muted">Product data is strong; trial flexibility is not.</td>
+            </tr>
+            <tr>
+              <th scope="row">Payment</th>
+              <td>Methods 5 · currency 4 · shipping 3 · total 3 · protection 4</td>
+              <td class="num">3.8 / 5</td>
+              <td class="muted">Local payment is a strength; the landed cost is not.</td>
+            </tr>
+            <tr class="is-flag">
+              <th scope="row">Order</th>
+              <td>Button meaning, post-order state, payment path</td>
+              <td class="num">No score</td>
+              <td>Two orders created under “Waiting for payment”; neither paid.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="evidence">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">03 / Evidence</p>
+        <div>
+          <h2>Five moments <em>where the journey turned.</em></h2>
+          <p class="pj-section__lede">Each capture is annotated in the original research. Click any image to enlarge it; personal details are redacted.</p>
+        </div>
+      </div>
+
+      <div class="pj-evidence">
+        <figure class="figure">
+          <button class="figure__btn" data-full="../assets/img/alibaba-study-search.webp" data-caption="Search evidence: a model-year range appears in the listing, but 2013 compatibility, side, and pair quantity are not confirmed.">
+            <img src="../assets/img/alibaba-study-search.webp" alt="Annotated Alibaba search results for Toyota Avanza 2013 headlamp assembly, with red boxes around the keyword, filters, and seven listings" width="1800" height="1751" loading="lazy">
+          </button>
+          <figcaption>A model-year range, not a fitment guarantee: “2012–2015” with no 2013, side, or pair confirmation.</figcaption>
+        </figure>
+
+        <figure class="figure">
+          <button class="figure__btn" data-full="../assets/img/alibaba-study-orders.webp" data-caption="My Orders: two orders created under Waiting for payment, each with a Make payment action.">
+            <img src="../assets/img/alibaba-study-orders.webp" alt="Alibaba My Orders screen showing two orders waiting for payment and a Make payment button" width="1500" height="1666" loading="lazy">
+          </button>
+          <figcaption>Two orders created under “Waiting for payment”; neither was paid during the study.</figcaption>
+        </figure>
+
+        <figure class="figure figure--wide">
+          <button class="figure__btn" data-full="../assets/img/alibaba-study-product.webp" data-caption="Final Buy Now listing: 50-set MOQ, 4.7/5 store rating, 12-month warranty, and a premium shipping quote.">
+            <img src="../assets/img/alibaba-study-product.webp" alt="Alibaba Buy Now product page for a Toyota Avanza headlamp with price tiers, 50-set MOQ, supplier rating, and shipping quote" width="1800" height="600" loading="lazy">
+          </button>
+          <figcaption>The final Buy Now listing: 50-set MOQ, 4.7/5 rating, 12-month warranty — and a “set” meaning that still needed confirmation.</figcaption>
+        </figure>
+
+        <figure class="figure figure--wide">
+          <button class="figure__btn" data-full="../assets/img/alibaba-study-checkout.webp" data-caption="Payment summary: item subtotal IDR 174,121,206, shipping IDR 121,160,500, total IDR 295,281,706, DAP terms.">
+            <img src="../assets/img/alibaba-study-checkout.webp" alt="Alibaba payment summary with item subtotal, shipping fee, total in IDR, and DAP shipment details; shipping address is blurred" width="1750" height="560" loading="lazy">
+          </button>
+          <figcaption>Checkout and payment summary: IDR 174.1M item, IDR 121.2M shipping, IDR 295.3M total. Shipping address is redacted.</figcaption>
+        </figure>
+
+        <figure class="figure figure--wide">
+          <button class="figure__btn" data-full="../assets/img/alibaba-study-payment.webp" data-caption="Payment methods: 2.99% processing fee on cards and wallets; GoPay limited to IDR 20,000,000.">
+            <img src="../assets/img/alibaba-study-payment.webp" alt="Alibaba payment method panel showing card, Apple Pay, Google Pay, PayPal, and GoPay fees and limits; shipping address blurred" width="1750" height="530" loading="lazy">
+          </button>
+          <figcaption>Payment methods: a 2.99% processing fee on cards and wallets; GoPay capped at IDR 20M.</figcaption>
+        </figure>
+      </div>
+      <p class="pj-note">The study created two unpaid orders and stopped at payment. No transaction was completed, and no personal or payment data is published.</p>
+    </div>
+  </section>
+
+  <section class="pj-section" id="findings">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">04 / Findings</p>
+        <div>
+          <h2>What actually <em>stops the order.</em></h2>
+          <p class="pj-section__lede">Six friction points, ranked by what they do to a high-value purchase. Five can stop payment; the sixth is a strength that needs better disclosure.</p>
+        </div>
+      </div>
+
+      <div class="pj-risks">
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 01</p><span class="sev sev--high">High</span></div>
+          <h3>Fitment is a range, not a guarantee.</h3>
+          <p>Titles say “Avanza 2012–2015” or “2012–2017”, but not 2013-specific compatibility, left or right side, connector, or mounting points. The buyer has to open chat before trusting the listing.</p>
+        </div>
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 02</p><span class="sev sev--high">High</span></div>
+          <h3>“Set” is never defined.</h3>
+          <p>Price tiers are quoted per set. A set could be one lamp or a pair, so the unit that every landed-cost comparison depends on stays ambiguous until the supplier answers.</p>
+        </div>
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 03</p><span class="sev sev--high">High</span></div>
+          <h3>Freight is the real price.</h3>
+          <p>IDR 121.2M of freight sits on an IDR 174.1M item. At 69.6% of the subtotal, shipping changes the decision more than the unit price does.</p>
+        </div>
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 04</p><span class="sev sev--high">High</span></div>
+          <h3>Duties and taxes are a blank line.</h3>
+          <p>DAP is shown, but the checkout does not say whether Indonesian import duty and tax are included or charged on arrival. A buyer cannot approve an incomplete total.</p>
+        </div>
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 05</p><span class="sev sev--high">High</span></div>
+          <h3>“Create Order” is not “Pay”.</h3>
+          <p>Selecting wire transfer submits the order to the supplier; it then sits in My Orders as unpaid. The button and the next step do not make that distinction clear.</p>
+        </div>
+        <div class="pj-risk">
+          <div class="pj-risk__top"><p class="pj-risk__no">Finding 06</p><span class="sev">Medium</span></div>
+          <h3>Local payment is a strength — if limits are visible.</h3>
+          <p>Five payment routes, IDR pricing, and visible order protection are real advantages. But the 2.99% fee and GoPay's IDR 20M cap appear only inside the method panel, after the buyer has committed to checkout.</p>
+        </div>
+      </div>
+
+      <p class="pj-kicker">Same task, second platform</p>
+      <div class="pj-table-wrap">
+        <table class="pj-table">
+          <caption>Alibaba and Made-in-China, same requirement and keywords. Scores come from the study's stage reviews; “visible” means the information was present without contacting the supplier.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Capability</th>
+              <th scope="col">Alibaba.com</th>
+              <th scope="col">Made-in-China</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Search relevance</th>
+              <td>4/5 after specific keywords; broad query surfaced other models.</td>
+              <td class="muted">2/5; broad query returned rear lamps, OEM numbers were needed.</td>
+            </tr>
+            <tr>
+              <th scope="row">Product attributes</th>
+              <td>Clear title, tiers, warranty, and supplier signals; side and pair missing.</td>
+              <td class="muted">Structured fitment, OEM, material, certifications, and capacity.</td>
+            </tr>
+            <tr>
+              <th scope="row">Supplier evidence</th>
+              <td>4.7/5 rating, ≤4h response, ≥80% on-time dispatch.</td>
+              <td class="muted">SGS audit number, factory tour, trade capacity, certificates.</td>
+            </tr>
+            <tr>
+              <th scope="row">Checkout</th>
+              <td>Direct checkout in IDR with local payment methods.</td>
+              <td class="muted">Inquiry only; no final freight, duties, or payable total.</td>
+            </tr>
+            <tr>
+              <th scope="row">Order protection</th>
+              <td>Secure payment, guaranteed delivery, refund policy visible.</td>
+              <td class="muted">No equivalent platform-level protection visible.</td>
+            </tr>
+            <tr class="is-win">
+              <th scope="row">Best used for</th>
+              <td>Completing a transaction and paying locally.</td>
+              <td>Building the supplier dossier before the first contact.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="figure figure--wide pj-mt">
+        <button class="figure__btn" data-full="../assets/img/alibaba-study-mic.webp" data-caption="Made-in-China: the broad query returned rear lamps for a front headlamp request; OEM references were needed to find one verified match.">
+          <img src="../assets/img/alibaba-study-mic.webp" alt="Made-in-China search results for a Toyota Avanza front headlamp query, with red boxes around three rear lamp listings" width="1800" height="570" loading="lazy">
+        </button>
+        <figcaption>Made-in-China: the same broad query surfaced rear lamps; OEM part numbers were needed to find a front lamp.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pj-section" id="fixes">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">05 / Fixes</p>
+        <div>
+          <h2>Six changes <em>that would keep the order.</em></h2>
+          <p class="pj-section__lede">Each fix maps to a finding and can be tested inside the existing flow. None of them requires a new marketplace — only clearer disclosure.</p>
+        </div>
+      </div>
+
+      <div class="pj-stages">
+        <div class="pj-stage">
+          <p class="pj-stage__no">01</p>
+          <div>
+            <h3>Price the unit completely</h3>
+            <p>Show per lamp, per pair, and per side at the card, the tier, and the checkout — then repeat it in the order summary.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">02</p>
+          <div>
+            <h3>Show the landed-cost equation</h3>
+            <p>Item + freight + estimated duty and tax + processing fee = payable now. Flag anything estimated and anything payable on arrival.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">03</p>
+          <div>
+            <h3>Give freight choices</h3>
+            <p>Air courier for samples, LCL for mid-size orders, FCL for bulk — each with transit time, delivery scope, insurance, and customs support.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">04</p>
+          <div>
+            <h3>Rename the button and show the path</h3>
+            <p>“Submit order for confirmation”, followed by a six-step bar from order to shipment. Make the unpaid state impossible to miss.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">05</p>
+          <div>
+            <h3>Make trial quantities visible</h3>
+            <p>Show sample and trial tiers next to the 50- and 100-set prices, so a first order can fit the buyer's actual demand.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">06</p>
+          <div>
+            <h3>Carry the reference into payment</h3>
+            <p>On the provider page: order number, merchant, amount, deadline, limits, and the currency conversion — before the buyer confirms.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div class="pj-panel">
+          <h3>What already works</h3>
+          <ul>
+            <li>Prices shown in IDR with an exchange-rate reference.</li>
+            <li>Local payments: bank transfer, cards, GoPay, DANA, Kredivo.</li>
+            <li>Order protection, guaranteed delivery, and a refund policy.</li>
+            <li>Supplier rating, response time, and on-time dispatch visible.</li>
+            <li>A direct checkout instead of an inquiry-only flow.</li>
+          </ul>
+        </div>
+        <div class="pj-dark">
+          <h3>What I would not add</h3>
+          <ul>
+            <li><span>01</span> Another dashboard before the total is complete.</li>
+            <li><span>02</span> A fee that appears only after the payment method is chosen.</li>
+            <li><span>03</span> A “Buy Now” badge on a listing whose fitment is still unconfirmed.</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pj-kicker">Reference pattern</p>
+      <figure class="figure figure--wide">
+        <button class="figure__btn" data-full="../assets/img/alibaba-study-amazon.webp" data-caption="Reference: Amazon's checkout shows shipping options with arrival dates, import charges, and the total in one view. Address and payment details are redacted.">
+          <img src="../assets/img/alibaba-study-amazon.webp" alt="Amazon checkout with shipping options, import charges, exchange rate, and order total; address and payment details blurred" width="1743" height="902" loading="lazy">
+        </button>
+        <figcaption>Amazon, used only as a reference: shipping choices, import charges, and the total sit in one view. Address and payment details are redacted.</figcaption>
+      </figure>
+      <p class="pj-note">This is not a competitor comparison. It is a pattern reference for how a cross-border checkout can show options, fees, and the payable total before the buyer commits.</p>
+
+      <blockquote class="pj-quote">The buyer did not abandon the product. The buyer abandoned an incomplete total.</blockquote>
+    </div>
+  </section>
+
+  <section class="pj-section" id="impact">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">06 / Impact</p>
+        <div>
+          <h2>What the study produced.</h2>
+          <p class="pj-section__lede">A research pack a product or payments team can act on: evidence, severity, and a short list of fixes in priority order.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-deliverables">
+          <div class="pj-deliverable"><strong>Bilingual research report</strong>The full journey in English and Bahasa Indonesia, with verbatim findings.</div>
+          <div class="pj-deliverable"><strong>44 annotated captures</strong>Search, product, checkout, payment, and order creation — every claim traceable.</div>
+          <div class="pj-deliverable"><strong>Stage scorecard</strong>1–5 scores by stage and element, with the average for each stage.</div>
+          <div class="pj-deliverable"><strong>Platform benchmark</strong>Alibaba vs Made-in-China, plus an Amazon checkout reference.</div>
+          <div class="pj-deliverable"><strong>Six prioritised fixes</strong>Each mapped to a finding, an evidence capture, and a testable change.</div>
+          <div class="pj-deliverable"><strong>Decision-ready readout</strong>A one-page summary for a product, payments, or conversion team.</div>
+        </div>
+
+        <aside class="pj-panel" aria-label="What this shows a hiring team">
+          <h3>What this shows a hiring team</h3>
+          <ul>
+            <li>Designs a realistic task simulation, not a survey.</li>
+            <li>Separates a preference from a payment-stopping defect.</li>
+            <li>Reads procurement and UX signals in the same journey.</li>
+            <li>Quantifies friction: 69.6% of the subtotal was freight.</li>
+            <li>Writes bilingual findings a product team can act on.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div>
+          <p class="pj-kicker">Tools used</p>
+          <ul class="chips">
+            <li>Alibaba app</li><li>Made-in-China</li><li>Amazon reference</li><li>Excel scoring</li><li>Annotated screenshots</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pj-kicker">Project facts</p>
+          <div class="facts">
+            <div>
+              <ul>
+                <li><span>Role</span> Freelance UX and procurement researcher</li>
+                <li><span>Scope</span> 4 stages · 3 platforms</li>
+                <li><span>Method</span> Task simulation and heuristic scoring</li>
+                <li><span>Output</span> Bilingual research report and scorecard</li>
+                <li><span>Year</span> 2026</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-cta">
+    <div class="container">
+      <p class="label label--light"><span>Next</span> Work with me</p>
+      <h2>Need to know <em>where buyers drop off?</em></h2>
+      <p>I can run the same task simulation on your product, score the journey, and turn the friction into a prioritised fix list your team can ship.</p>
+      <div class="pj-cta__actions">
+        <a class="btn btn--light" href="mailto:italiani1119@gmail.com">Email me
+          <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--outline-light" href="https://www.upwork.com/freelancers/~014712124a23782c28" target="_blank" rel="noopener">Upwork</a>
+      </div>
+      <a class="pj-cta__back" href="../index.html#case-studies">
+        <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to all projects
+      </a>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer class="pj-footer">
+  <div class="container pj-footer__inner">
+    <p>© <span id="year">2026</span> Ita Liani · Palembang, Indonesia</p>
+    <div class="pj-footer__links">
+      <a href="../index.html">Portfolio</a>
+      <a href="mailto:italiani1119@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/italiani1119-luck" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script src="../js/main.js"></script>
 </body>
 </html>
