@@ -161,6 +161,29 @@
 .award-row.is-win strong{ color: var(--paper); }
 .award-row.is-win .award-track i{ background: var(--brass); }
 
+.study-total{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-light);
+}
+.study-total span{
+  font-size: .54rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(246,242,233,.5);
+}
+.study-total strong{
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--brass-light);
+}
+
 .pj-metrics{
   position: relative;
   display: grid;
@@ -570,7 +593,7 @@
   padding-top: 20px;
   border-top: 1px solid var(--ink);
 }
-.pj-risk__no{
+.pj-risk .pj-risk__no{
   font-family: var(--font-serif);
   font-size: .76rem;
   color: var(--brass-ink);
@@ -587,6 +610,27 @@
   font-size: .85rem;
   line-height: 1.68;
   color: var(--muted);
+}
+.pj-risk__top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.sev{
+  flex: none;
+  padding: 3px 7px;
+  font-size: .47rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+.sev--high{
+  color: var(--brass-ink);
+  border-color: rgba(169,139,93,.4);
+  background: #F7EBE1;
 }
 
 /* decision */
@@ -828,8 +872,13 @@
 }
 
 @media print{
-  .pj-toc, .pj-cta__actions, .pj-footer__links{ display: none !important; }
+  .pj-toc, .pj-cta__actions, .pj-footer__links, .pj-hero__actions{ display: none !important; }
   .pj-section, .pj-hero, .pj-cta{ padding: 20px 0 !important; background: #fff !important; color: #000 !important; }
   .pj-hero h1 em, .pj-section h2 em, .pj-cta h2 em, .pj-quote{ color: #000 !important; }
   .pj-cover, .pj-panel, .pj-award{ break-inside: avoid; }
+  .pj-cover--chart{ background: #fff !important; border-color: #999 !important; color: #000 !important; }
+  .pj-cover--chart *{ color: #000 !important; border-color: #999 !important; }
+  .award-track{ background: #e4e0d7 !important; }
+  .award-track i{ background: #777 !important; }
+  .award-row.is-win .award-track i{ background: #000 !important; }
 }
