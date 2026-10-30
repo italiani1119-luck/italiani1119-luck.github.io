@@ -831,6 +831,24 @@ a{ color: inherit; }
 .case__body--reverse .case__copy{ order: 2; }
 .case__body--reverse .case__evidence{ order: 1; }
 
+.case__cta{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.case__cta p{
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .case__copy{ min-width: 0; }
 .case__block{ margin-bottom: 30px; }
 .case__block h4,
