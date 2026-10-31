@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Montessori game — learning that works offline | Ita Liani</title>
+<meta name="description" content="A Montessori-inspired game for ages 3–6 with five trails, three age bands, badges, and a grown-ups area — built as an installable offline app for Android, iOS, and the web.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://italiani1119-luck.github.io/projects/montessori-game.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://italiani1119-luck.github.io/projects/montessori-game.html">
+<meta property="og:title" content="Montessori game — learning that works offline | Ita Liani">
+<meta property="og:description" content="Five Montessori trails, three age bands, and a parent view — an installable game that runs without a connection.">
+<meta property="og:image" content="https://italiani1119-luck.github.io/assets/img/og-game.png">
+<meta property="og:image:alt" content="Montessori game project by Ita Liani">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Montessori game — learning that works offline | Ita Liani">
+<meta name="twitter:description" content="A Montessori-inspired game for ages 3–6, built as an installable offline app for Android, iOS, and the web.">
+<meta name="twitter:image" content="https://italiani1119-luck.github.io/assets/img/og-game.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/project.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Montessori game — learning that works offline",
+  "url": "https://italiani1119-luck.github.io/projects/montessori-game.html",
+  "description": "An installable Montessori-inspired game for ages 3–6 with five trails, three age bands, local progress, and a grown-ups area.",
+  "author": { "@type": "Person", "name": "Ita Liani", "url": "https://italiani1119-luck.github.io/" },
+  "about": ["Montessori education", "Offline-first web app", "Product design", "Capacitor"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="brand" href="../index.html#top" aria-label="Ita Liani — home">
+      <span class="brand__mark" aria-hidden="true">IL</span>
+      <span class="brand__text">
+        <strong>Ita Liani</strong>
+        <small>Executive support · Procurement · Automation</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="./" aria-current="page">Projects</a>
+      <a href="../index.html#samples">Samples</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../cv.html">CV</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="btn btn--sm nav__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+    </nav>
+
+    <a class="btn btn--sm header__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="pj-hero">
+    <div class="container">
+      <div class="pj-hero__grid">
+        <div>
+          <nav class="pj-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Portfolio</a>
+            <span aria-hidden="true">/</span>
+            <a href="./">Projects</a>
+            <span aria-hidden="true">/</span>
+            <span>Montessori game</span>
+          </nav>
+
+          <p class="pj-eyebrow"><span class="status-dot" aria-hidden="true"></span> Personal build · Product · 2026</p>
+          <h1>Learning that works <em>offline.</em></h1>
+          <p class="pj-hero__lede">Screen time for a three-to-six-year-old is usually passive, online, and hard for a parent to audit. I wanted a small game that teaches something, runs without a connection, and lets a grown-up see the progress.</p>
+
+          <div class="pj-hero__actions">
+            <a class="btn" href="https://italiani1119-luck.github.io/games-montessori-sean-advanture/" target="_blank" rel="noopener">Play the live app
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#method">See the trails</a>
+          </div>
+        </div>
+
+        <figure class="pj-cover pj-cover--phones">
+          <div class="phone-pair">
+            <button class="figure__btn" data-full="../assets/img/game-map.webp" data-caption="Trail map: five Montessori trails, age band progress, badges, stars, and sparks. The profile name is generic.">
+              <img src="../assets/img/game-map.webp" alt="Montessori game trail map with five learning trails" width="392" height="728">
+            </button>
+            <button class="figure__btn" data-full="../assets/img/game-rewards.webp" data-caption="Reward shelf: badges, stars, perfect trails, and the selector for the three age bands.">
+              <img src="../assets/img/game-rewards.webp" alt="Montessori game reward shelf with badges and age band tabs" width="392" height="728">
+            </button>
+          </div>
+          <figcaption>Trail map and reward shelf from the running build. Click either screen to enlarge.</figcaption>
+        </figure>
+      </div>
+
+      <div class="pj-metrics" aria-label="Project at a glance">
+        <div class="pj-metric"><strong>5</strong><span>Montessori trails</span></div>
+        <div class="pj-metric"><strong>3</strong><span>age bands</span></div>
+        <div class="pj-metric"><strong>100%</strong><span>playable offline</span></div>
+        <div class="pj-metric"><strong>2</strong><span>mobile platforms</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pj-toc" aria-label="Project sections">
+    <div class="container pj-toc__inner">
+      <a href="#brief">Brief</a>
+      <a href="#method">Method</a>
+      <a href="#build">Build</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#impact">Impact</a>
+    </div>
+  </nav>
+
+  <section class="pj-section pj-section--first" id="brief">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">01 / Brief</p>
+        <div>
+          <h2>Screen time that <em>gives something back.</em></h2>
+          <p class="pj-section__lede">Most games for this age ask the child to watch. I wanted one that asks the child to do something — and shows a grown-up what happened.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-prose">
+          <p>For a three-to-six-year-old, screen time usually means a video plays and the child watches. It is hard to tell what was learned, and it depends on a connection that is not always there.</p>
+          <p>The brief was deliberately narrow: a small game with real learning content, playable <strong>without wifi</strong>, that keeps progress between sessions and gives a parent a way to see it. A car seat, a waiting room, or a dead spot at home are exactly when a game needs to work.</p>
+          <p>The result is a Montessori-inspired app with five trails, three age bands, and a grown-ups area. It installs like a native app, plays offline, and was built end-to-end with <strong>Qoder</strong> as the coding partner.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Design constraints">
+          <h3>Design constraints</h3>
+          <ul>
+            <li>Playable with no connection</li>
+            <li>Progress saved on the device</li>
+            <li>Readable on a 320 px screen</li>
+            <li>Montessori areas as the content spine</li>
+            <li>A progress view a grown-up can read</li>
+            <li>Installable on Android and iOS</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="method">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">02 / Method</p>
+        <div>
+          <h2>Five trails. <em>Three age bands.</em></h2>
+          <p class="pj-section__lede">The content follows the Montessori areas rather than a generic quiz ladder. Each trail gets a wider challenge as the child moves up an age band.</p>
+        </div>
+      </div>
+
+      <p class="pj-scroll-hint">Swipe the table sideways to see every column.</p>
+      <div class="pj-table-wrap">
+        <table class="pj-table">
+          <caption>Trail titles and badges as they appear in the app. The three age bands reuse each trail with content suited to the band.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Trail</th>
+              <th scope="col">Area</th>
+              <th scope="col">What the child practises</th>
+              <th scope="col">In the app</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Home Helpers</th>
+              <td>Practical Life</td>
+              <td>Everyday independence and routine</td>
+              <td>Home Hero badge</td>
+            </tr>
+            <tr>
+              <th scope="row">Sense Safari</th>
+              <td>Sensorial</td>
+              <td>Matching, sorting, and noticing detail</td>
+              <td>Locked mystery badge</td>
+            </tr>
+            <tr>
+              <th scope="row">Number Cove</th>
+              <td>Mathematics</td>
+              <td>Counting and number sense</td>
+              <td>Number Navigator badge</td>
+            </tr>
+            <tr>
+              <th scope="row">Story Garden</th>
+              <td>Language</td>
+              <td>Letters, sounds, and story sequence</td>
+              <td>Six-chapter story</td>
+            </tr>
+            <tr>
+              <th scope="row">World Trail</th>
+              <td>Culture &amp; Science</td>
+              <td>The wider world and how it works</td>
+              <td>World Trail badge</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pj-note">The same five trails appear at 3–4, 4–5, and 5–6. Moving up a band changes the challenge, not the subject.</p>
+
+      <div class="pj-grid pj-mt">
+        <div class="pj-panel">
+          <h3>Three age bands</h3>
+          <ul>
+            <li><strong>3–4 years.</strong> Recognition and routines, with the simplest choices.</li>
+            <li><strong>4–5 years.</strong> Sorting, matching, and early counting.</li>
+            <li><strong>5–6 years.</strong> Sequences, story order, and more deliberate answers.</li>
+          </ul>
+        </div>
+
+        <div class="pj-dark">
+          <h3>Progress a grown-up can read</h3>
+          <ul>
+            <li><span>01</span> Badges, stars, and perfect trails on one reward shelf.</li>
+            <li><span>02</span> A spark jar that fills with correct answers.</li>
+            <li><span>03</span> A grown-ups area for progress and settings.</li>
+          </ul>
+        </div>
+      </div>
+
+      <blockquote class="pj-quote">A child should not need a connection — or a parent leaning over the screen — to keep learning.</blockquote>
+    </div>
+  </section>
+
+  <section class="pj-section" id="build">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">03 / Build</p>
+        <div>
+          <h2>An app that works <em>with the wifi off.</em></h2>
+          <p class="pj-section__lede">Offline was a requirement, not a fallback. The whole experience — screens, audio, and progress — lives on the device.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid">
+        <div class="pj-prose">
+          <p>The game is a web app with an <strong>offline service worker</strong> that caches the app shell and the audio. Once it has loaded, play does not wait on the network, and a dropped connection does not interrupt a trail.</p>
+          <p>Progress is saved locally, so stars, badges, and the spark count survive closing the app. The grown-ups area reads from the same local store — there is no account to create and no server round-trip to see how the child is doing.</p>
+          <p>It is packaged with <strong>Capacitor</strong> for Android and iOS as well as running in the browser. The layout was tested on desktop and down to a <strong>320 px</strong> viewport, which is the width where small hands and small screens actually meet.</p>
+          <p>The source is public, including the offline service worker and the build scripts, so the claims on this page can be checked rather than taken on trust.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="What is inside the build">
+          <h3>What is inside</h3>
+          <ul>
+            <li>Five trails across the Montessori areas</li>
+            <li>Three age bands, 3–4, 4–5, and 5–6</li>
+            <li>Badges, stars, perfect trails, and a spark jar</li>
+            <li>A grown-ups area for progress and settings</li>
+            <li>Local audio and saved progress</li>
+            <li>Offline service worker</li>
+            <li>Capacitor packages for Android and iOS</li>
+          </ul>
+        </aside>
+      </div>
+
+      <p class="pj-kicker">Design decisions worth naming</p>
+      <div class="pj-deliverables">
+        <div class="pj-deliverable"><strong>A Montessori spine, not a theme</strong>The five trails follow the Montessori areas: Practical Life, Sensorial, Mathematics, Language, and Culture &amp; Science.</div>
+        <div class="pj-deliverable"><strong>The same trail, a higher band</strong>Each trail is reused at 3–4, 4–5, and 5–6 with content suited to the band.</div>
+        <div class="pj-deliverable"><strong>Progress kept separate from play</strong>Badges, stars, and sparks live on the reward shelf; settings sit in the grown-ups area.</div>
+        <div class="pj-deliverable"><strong>Offline by default</strong>Audio and progress are local, so the game behaves the same on a plane, in a car, or at home.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="evidence">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">04 / Evidence</p>
+        <div>
+          <h2>The screens, <em>as played.</em></h2>
+          <p class="pj-section__lede">Both screens are from the running build. The profile uses a generic name, and no child details are published.</p>
+        </div>
+      </div>
+
+      <div class="pj-evidence pj-evidence--phones">
+        <figure class="figure">
+          <button class="figure__btn" data-full="../assets/img/game-map.webp" data-caption="Trail map: five Montessori trails, age band progress, badges, stars, and sparks.">
+            <img src="../assets/img/game-map.webp" alt="Montessori game trail map with five learning trails" width="392" height="728" loading="lazy">
+          </button>
+          <figcaption>Trail map: five trails, the current age band, and the next chapter.</figcaption>
+        </figure>
+        <figure class="figure">
+          <button class="figure__btn" data-full="../assets/img/game-rewards.webp" data-caption="Reward shelf: badges, stars, perfect trails, and the selector for the three age bands.">
+            <img src="../assets/img/game-rewards.webp" alt="Montessori game reward shelf with badges and age band tabs" width="392" height="728" loading="lazy">
+          </button>
+          <figcaption>Reward shelf: badges earned, stars, and the three age bands.</figcaption>
+        </figure>
+      </div>
+      <p class="pj-note">Privacy: the child's profile name and photo are not included in this portfolio. The screenshots show a generic “Explorer” profile.</p>
+
+      <div class="pj-grid pj-mt">
+        <div>
+          <p class="pj-kicker">Live app</p>
+          <div class="case__links">
+            <a class="repo-link" href="https://italiani1119-luck.github.io/games-montessori-sean-advanture/" target="_blank" rel="noopener">
+              <span>Playable build</span><strong>Sean Adventure · open in the browser</strong>
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <p class="pj-kicker">Source code</p>
+          <div class="case__links">
+            <a class="repo-link" href="https://github.com/italiani1119-luck/games-montessori-sean-advanture" target="_blank" rel="noopener">
+              <span>Game repository</span><strong>games-montessori-sean-advanture</strong>
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <p class="pj-kicker">Tools used</p>
+          <ul class="chips">
+            <li>HTML / CSS / JS</li><li>Service worker</li><li>Capacitor</li><li>Qoder</li><li>Montessori method</li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="pj-kicker">Project facts</p>
+          <div class="facts">
+            <div>
+              <ul>
+                <li><span>Role</span> Product designer and builder</li>
+                <li><span>Scope</span> Five trails · three age bands</li>
+                <li><span>Deliverable</span> Installable offline game</li>
+                <li><span>Live app</span> italiani1119-luck.github.io/games-montessori-sean-advanture</li>
+                <li><span>Year</span> 2026</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="impact">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">05 / Impact</p>
+        <div>
+          <h2>A finished product, <em>not a prototype.</em></h2>
+          <p class="pj-section__lede">The game installs, plays offline, saves progress, and includes a view for the adult in the room.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-deliverables">
+          <div class="pj-deliverable"><strong>Five trails, three age bands</strong>Fifteen variations of structured play, not one level repeated.</div>
+          <div class="pj-deliverable"><strong>A parent view</strong>Badges, stars, perfect trails, and sparks visible outside the play area.</div>
+          <div class="pj-deliverable"><strong>Offline install</strong>Service worker, local audio, and saved progress — no connection needed to play.</div>
+          <div class="pj-deliverable"><strong>Android and iOS packages</strong>Capacitor builds alongside the browser version.</div>
+          <div class="pj-deliverable"><strong>Tested at 320 px</strong>Desktop and small-screen layouts checked, not assumed.</div>
+          <div class="pj-deliverable"><strong>Public source</strong>The service worker and build scripts are open to review.</div>
+        </div>
+
+        <aside class="pj-panel" aria-label="What this shows a hiring team">
+          <h3>What this shows a hiring team</h3>
+          <ul>
+            <li>Takes a product from idea to an installable build.</li>
+            <li>Designs for two users at once: the child and the parent.</li>
+            <li>Treats offline and privacy as requirements.</li>
+            <li>Ships, tests on real screen sizes, and documents the work.</li>
+            <li>Uses AI tooling end-to-end without losing the product thread.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-cta">
+    <div class="container">
+      <p class="label label--light"><span>Next</span> Work with me</p>
+      <h2>Need something <em>built end to end?</em></h2>
+      <p>I can take a small product from brief to installable build — including the offline behaviour, the parent view, and the documentation that makes it maintainable. Available for remote roles and freelance product work.</p>
+      <div class="pj-cta__actions">
+        <a class="btn btn--light" href="mailto:italiani1119@gmail.com">Email me
+          <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--outline-light" href="https://www.upwork.com/freelancers/~014712124a23782c28" target="_blank" rel="noopener">Upwork</a>
+      </div>
+      <a class="pj-cta__back" href="./">
+        <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to all projects
+      </a>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer class="pj-footer">
+  <div class="container pj-footer__inner">
+    <p>© <span id="year">2026</span> Ita Liani · Palembang, Indonesia</p>
+    <div class="pj-footer__links">
+      <a href="../index.html">Portfolio</a>
+      <a href="mailto:italiani1119@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/italiani1119-luck" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -631,6 +631,15 @@ a{ color: inherit; }
 }
 .card h3 a{ text-decoration: none; }
 .card h3 a:hover{ color: var(--pine); }
+.card__actions{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 24px;
+  margin-top: auto;
+}
+.card__actions .text-link{ margin-top: 0; }
+
 .card__desc{
   font-size: .9rem;
   line-height: 1.66;
@@ -1247,6 +1256,7 @@ a{ color: inherit; }
   color: var(--muted);
 }
 .experience__aside .btn{ margin-top: 28px; }
+.experience__read{ margin-top: 18px; }
 
 .timeline{ border-top: 1px solid var(--ink); }
 .job{
@@ -1301,8 +1311,8 @@ a{ color: inherit; }
 
 .capabilities{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 34px 48px;
   margin-top: 42px;
   padding-top: 32px;
   border-top: 1px solid var(--ink);

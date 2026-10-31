@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Approval-first automation — five workflows, one rule | Ita Liani</title>
+<meta name="description" content="Five recurring workflows automated on a local machine — LinkedIn drafts, job leads, reminders, procurement paperwork, and video — each with a human approval step and an audit log.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://italiani1119-luck.github.io/projects/automation.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://italiani1119-luck.github.io/projects/automation.html">
+<meta property="og:title" content="Approval-first automation — five workflows, one rule | Ita Liani">
+<meta property="og:description" content="Five workflows that draft, remind, log, and publish — with a person approving anything that leaves the machine.">
+<meta property="og:image" content="https://italiani1119-luck.github.io/assets/img/og-automation.png">
+<meta property="og:image:alt" content="Approval-first automation project by Ita Liani">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Approval-first automation — five workflows, one rule | Ita Liani">
+<meta name="twitter:description" content="Five recurring workflows automated end to end. A person still approves anything that leaves the machine.">
+<meta name="twitter:image" content="https://italiani1119-luck.github.io/assets/img/og-automation.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/project.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Approval-first automation — five workflows, one rule",
+  "url": "https://italiani1119-luck.github.io/projects/automation.html",
+  "description": "Five recurring workflows automated on a local Flask and SQLite stack, with approval gates, atomic publishing claims, and a complete action log.",
+  "author": { "@type": "Person", "name": "Ita Liani", "url": "https://italiani1119-luck.github.io/" },
+  "about": ["Workflow automation", "Human in the loop", "AI operations", "Procurement support"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="brand" href="../index.html#top" aria-label="Ita Liani — home">
+      <span class="brand__mark" aria-hidden="true">IL</span>
+      <span class="brand__text">
+        <strong>Ita Liani</strong>
+        <small>Executive support · Procurement · Automation</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="./" aria-current="page">Projects</a>
+      <a href="../index.html#samples">Samples</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../cv.html">CV</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="btn btn--sm nav__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+    </nav>
+
+    <a class="btn btn--sm header__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="pj-hero">
+    <div class="container">
+      <div class="pj-hero__grid">
+        <div>
+          <nav class="pj-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Portfolio</a>
+            <span aria-hidden="true">/</span>
+            <a href="./">Projects</a>
+            <span aria-hidden="true">/</span>
+            <span>Automation</span>
+          </nav>
+
+          <p class="pj-eyebrow"><span class="status-dot" aria-hidden="true"></span> Internal build · Automation &amp; AI · 2026</p>
+          <h1>Five workflows. <em>One rule: a person approves.</em></h1>
+          <p class="pj-hero__lede">Reminders, content drafts, job leads, procurement paperwork, and video publishing all depended on someone remembering them. I automated the repetition and kept the judgement — and the approval — human.</p>
+
+          <div class="pj-hero__actions">
+            <a class="btn" href="#workflows">See the workflows
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#evidence">Read the repositories</a>
+          </div>
+        </div>
+
+        <figure class="pj-cover pj-cover--diagram">
+          <button class="figure__btn" data-full="../assets/diagrams/linkedin-workflow.png" data-caption="Daily posting and comment workflow, split by assistant, user, and platform. The email address in the preview is redacted.">
+            <img src="../assets/diagrams/linkedin-workflow.png" alt="Workflow diagram with three lanes: Lindy assistant, Ita Liani, and LinkedIn platform" width="1280" height="800">
+          </button>
+          <figcaption>Daily posting and comment workflow: the assistant prepares, a person approves, the platform publishes. Click to enlarge.</figcaption>
+        </figure>
+      </div>
+
+      <div class="pj-metrics" aria-label="Project at a glance">
+        <div class="pj-metric"><strong>5</strong><span>workflows automated</span></div>
+        <div class="pj-metric"><strong>3×</strong><span>reminders per day</span></div>
+        <div class="pj-metric"><strong>4</strong><span>non-negotiable guardrails</span></div>
+        <div class="pj-metric"><strong>0</strong><span>posts without approval</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pj-toc" aria-label="Project sections">
+    <div class="container pj-toc__inner">
+      <a href="#brief">Brief</a>
+      <a href="#workflows">Workflows</a>
+      <a href="#control">Control</a>
+      <a href="#guardrails">Guardrails</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#impact">Impact</a>
+    </div>
+  </nav>
+
+  <section class="pj-section pj-section--first" id="brief">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">01 / Brief</p>
+        <div>
+          <h2>The work was reliable <em>only if I remembered it.</em></h2>
+          <p class="pj-section__lede">Each recurring task was small. Together they took the part of the day meant for real work — and one forgotten reminder could undo a week of planning.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-prose">
+          <p>The list was ordinary: a daily LinkedIn post, comment replies, a morning job scan, three reminders, supplier follow-ups, and a video slot. None of it was difficult. All of it was <strong>constant</strong>, and all of it depended on memory.</p>
+          <p>The obvious fix was to automate everything. The risk was just as obvious: a machine publishing in my name, applying to jobs, or emailing a supplier without review. <strong>Speed without control would have been worse than the manual routine.</strong></p>
+          <p>So the build followed one rule from the start: automate the preparation, keep the decision. Every workflow produces a draft, a digest, or a reminder. A person approves anything that leaves the machine, and every action writes a record.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="The recurring tasks in scope">
+          <h3>The five recurring tasks</h3>
+          <ul>
+            <li>Daily LinkedIn post and comment triage</li>
+            <li>Morning scan for remote job leads</li>
+            <li>Three daily reminders and completion logging</li>
+            <li>Procurement paperwork from requisition to payment</li>
+            <li>Short-video production and scheduled publishing</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="workflows">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">02 / Workflows</p>
+        <div>
+          <h2>Five workflows, <em>one human checkpoint each.</em></h2>
+          <p class="pj-section__lede">Each runs on a schedule or a trigger. None of them acts outward without an approval or an explicit read-only rule.</p>
+        </div>
+      </div>
+
+      <div class="pj-stages">
+        <div class="pj-stage">
+          <p class="pj-stage__no">01</p>
+          <div>
+            <h3>LinkedIn content engine</h3>
+            <p>A daily draft at 08:00, an email preview, then explicit approve, revise, or cancel. Only an approved draft publishes at its scheduled slot; a record-and-cleanup step closes the loop.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">02</p>
+          <div>
+            <h3>Job-lead digest</h3>
+            <p>Every 08:00, five to ten verified remote roles posted within the last seven days. It is read-only by design: the digest never applies to a role and never contacts an employer.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">03</p>
+          <div>
+            <h3>Reminder and task tracker</h3>
+            <p>Three reminders a day at 04:00, 08:00, and 16:00 WIB. A one-click “done” link marks the task complete, the log writes itself, and a monthly recap shows what actually happened.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">04</p>
+          <div>
+            <h3>Procurement chatbot</h3>
+            <p>Covers the full cycle from requisition to payment, and drafts RFQs, vendor criteria, and contract checklists by email — for a buyer to review, not to send on its own.</p>
+          </div>
+        </div>
+        <div class="pj-stage">
+          <p class="pj-stage__no">05</p>
+          <div>
+            <h3>Local video pipeline</h3>
+            <p>Seventy-second educational and thirty-second affiliate videos with narration, captions, scheduled publishing, and a duplicate ledger so the same clip is never posted twice.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div class="pj-panel">
+          <h3>Where control sits</h3>
+          <ul>
+            <li><strong>A status field.</strong> Every draft moves from pending to approved to publishing to posted. No post skips a state.</li>
+            <li><strong>An atomic claim.</strong> Publishing is claimed before the API call, so two runs cannot post the same draft twice.</li>
+            <li><strong>A local store.</strong> SQLite holds the queue, the timestamps, and the LinkedIn post ID — readable without a vendor dashboard.</li>
+          </ul>
+        </div>
+
+        <div class="pj-dark">
+          <h3>Why the build is local</h3>
+          <ul>
+            <li><span>01</span> The Flask dashboard runs on <strong>127.0.0.1:8080</strong> with a login and CSRF protection.</li>
+            <li><span>02</span> API keys and OAuth tokens stay on the machine, not in a third-party workflow builder.</li>
+            <li><span>03</span> A short-lived tunnel carries only the approval link and the OAuth callback.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="control">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">03 / Control</p>
+        <div>
+          <h2>Automation handles the work. <em>People handle the call.</em></h2>
+          <p class="pj-section__lede">Every workflow separates what the machine prepares from what a person decides. The line is written down, not left to judgement in the moment.</p>
+        </div>
+      </div>
+
+      <p class="pj-scroll-hint">Swipe the table sideways to see every column.</p>
+      <div class="pj-table-wrap">
+        <table class="pj-table">
+          <caption>Human checkpoints by workflow. “None” means the workflow has no outbound capability — not that the checkpoint was skipped.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Workflow</th>
+              <th scope="col">Automated</th>
+              <th scope="col">Human checkpoint</th>
+              <th scope="col">Audit trail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">LinkedIn content</th>
+              <td>Draft, email preview, schedule</td>
+              <td>Approve, revise, or cancel by email</td>
+              <td>Status, timestamps, post ID</td>
+            </tr>
+            <tr>
+              <th scope="row">Job leads</th>
+              <td>Collect and filter 5–10 roles</td>
+              <td>Read the digest and choose</td>
+              <td>Read-only, no outbound action</td>
+            </tr>
+            <tr>
+              <th scope="row">Reminders</th>
+              <td>Send at 04:00, 08:00, 16:00</td>
+              <td>One click marks the task done</td>
+              <td>Completion log and monthly recap</td>
+            </tr>
+            <tr>
+              <th scope="row">Procurement drafts</th>
+              <td>Draft RFQs, criteria, checklists</td>
+              <td>Buyer reviews, edits, and sends</td>
+              <td>Draft stored in the local app</td>
+            </tr>
+            <tr>
+              <th scope="row">Video publishing</th>
+              <td>Narration, captions, schedule</td>
+              <td>Approve before publish</td>
+              <td>Duplicate ledger per clip</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="pj-note">The job digest and the procurement chatbot have no send capability at all. That was a design choice, not a missing feature.</p>
+    </div>
+  </section>
+
+  <section class="pj-section" id="guardrails">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">04 / Guardrails</p>
+        <div>
+          <h2>The rules came <em>before the workflows.</em></h2>
+          <p class="pj-section__lede">Four constraints decided what the system was allowed to do. Everything else was built inside them.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid">
+        <div class="guardrails">
+          <p class="guardrails__title">Guardrails</p>
+          <ul>
+            <li><span aria-hidden="true">01</span> No post without explicit approval.</li>
+            <li><span aria-hidden="true">02</span> No auto-applying to jobs.</li>
+            <li><span aria-hidden="true">03</span> API keys stay on the local machine.</li>
+            <li><span aria-hidden="true">04</span> Every action leaves a log.</li>
+          </ul>
+          <a class="guardrails__link" href="https://github.com/italiani1119-luck/Linkedin-optimasion/blob/main/docs/diagrams/local-app-architecture.svg" target="_blank" rel="noopener">View the architecture diagram
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="pj-prose">
+          <p><strong>Approval is a state, not a promise.</strong> The publishing job only picks up posts whose status is approved and whose publish time has passed. If nobody approves, nothing goes out — the queue grows and the morning preview shows it.</p>
+          <p><strong>Read-only is enforced, not trusted.</strong> The job digest has no send path, and the procurement assistant produces drafts for a buyer to carry into email. Limiting the tool was easier than policing its output.</p>
+          <p><strong>Logging is part of the work.</strong> Reminder completions, approvals, rewrites, cancellations, and post IDs all land in the same SQLite file. The monthly recap is a report over that file, not a separate spreadsheet.</p>
+          <p><strong>Credentials never leave the machine.</strong> The dashboard is bound to localhost, and OAuth tokens are exchanged and stored locally. The tunnel exists for the approval page and callback only.</p>
+        </div>
+      </div>
+
+      <blockquote class="pj-quote">If I cannot see who approved what, the automation is not saving time — it is moving risk.</blockquote>
+    </div>
+  </section>
+
+  <section class="pj-section" id="evidence">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">05 / Evidence</p>
+        <div>
+          <h2>A workflow you can <em>open and read.</em></h2>
+          <p class="pj-section__lede">The public repositories hold the workflow configuration, the local app, and the diagrams. The working instance — keys, mail, accounts — stays private.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-flow">
+            <div class="pj-flow__head">
+              <span class="pj-flow__label">The publish gate</span>
+              <span class="pj-flow__note">Daily · logged</span>
+            </div>
+            <div class="pj-flow__steps">
+              <div class="pj-flow__step">
+                <b>Draft</b>
+                <small>08:00 · assistant prepares the post</small>
+              </div>
+              <div class="pj-flow__step">
+                <b>Email preview</b>
+                <small>Read it before it moves</small>
+              </div>
+              <div class="pj-flow__step pj-flow__step--gate">
+                <b>Approve</b>
+                <small>revise or cancel by email</small>
+              </div>
+              <div class="pj-flow__step">
+                <b>Publish</b>
+                <small>scheduled slot only</small>
+              </div>
+            </div>
+            <p class="pj-flow__states"><span>pending</span><i>→</i><span>approved</span><i>→</i><span>publishing</span><i>→</i><span>posted</span></p>
+            <p class="pj-flow__title">The publishing job claims only approved posts whose time has passed, and marks them before calling the API so a retry cannot post twice.</p>
+          </div>
+          <p class="pj-note"><a class="text-link" href="https://github.com/italiani1119-luck/Linkedin-optimasion/blob/main/docs/diagrams/local-app-architecture.svg" target="_blank" rel="noopener">View the full local-app architecture diagram</a></p>
+
+          <p class="pj-kicker">Repositories</p>
+          <div class="case__links">
+            <a class="repo-link" href="https://github.com/italiani1119-luck/linkedin-workflows" target="_blank" rel="noopener">
+              <span>Workflow configuration</span><strong>linkedin-workflows</strong>
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="repo-link" href="https://github.com/italiani1119-luck/Linkedin-optimasion" target="_blank" rel="noopener">
+              <span>Local app + diagrams</span><strong>Linkedin-optimasion</strong>
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <p class="pj-kicker">Tools used</p>
+          <ul class="chips">
+            <li>Lindy</li><li>Flask</li><li>SQLite</li><li>Claude / OpenAI</li><li>Resend</li><li>Webhooks</li><li>Cloudflare Tunnel</li>
+          </ul>
+        </div>
+
+        <aside class="pj-panel" aria-label="What is public and what stays private">
+          <h3>Public and private</h3>
+          <ul>
+            <li><strong>Public:</strong> workflow definitions, app code, architecture diagrams.</li>
+            <li><strong>Private:</strong> API keys, OAuth tokens, inbox contents, post history.</li>
+            <li><strong>Redacted:</strong> the preview address in the workflow diagram.</li>
+            <li><strong>Rule:</strong> a screenshot or diagram is published only after personal data is removed.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="impact">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">06 / Impact</p>
+        <div>
+          <h2>Less remembering. <em>Same control.</em></h2>
+          <p class="pj-section__lede">Five workflows now run on a repeatable schedule, and the parts that need judgement still stop for a person.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-deliverables">
+          <div class="pj-deliverable"><strong>Five live workflows</strong>Scheduled and operating on my own machine, not in a demo environment.</div>
+          <div class="pj-deliverable"><strong>One gate per outbound action</strong>Publishing waits for approval; job leads and procurement drafts cannot send.</div>
+          <div class="pj-deliverable"><strong>Zero manual reminder logging</strong>Completion is one click, and the month closes itself.</div>
+          <div class="pj-deliverable"><strong>A repeatable morning routine</strong>Digest, approvals, and reminders handled in one pass instead of a memory test.</div>
+          <div class="pj-deliverable"><strong>Local data and credentials</strong>Flask, SQLite, and a localhost dashboard keep secrets off third-party platforms.</div>
+          <div class="pj-deliverable"><strong>A public record</strong>Two repositories document the configuration and the architecture.</div>
+        </div>
+
+        <aside class="pj-panel" aria-label="What this shows a hiring team">
+          <h3>What this shows a hiring team</h3>
+          <ul>
+            <li>Turns recurring admin work into a system with states and owners.</li>
+            <li>Designs automation around approval instead of around speed.</li>
+            <li>Thinks about idempotency, logging, and credential handling.</li>
+            <li>Can explain the build to a non-technical manager.</li>
+            <li>Knows when not to automate a decision.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div>
+          <p class="pj-kicker">Tools used</p>
+          <ul class="chips">
+            <li>Lindy</li><li>Flask</li><li>SQLite</li><li>Claude / OpenAI</li><li>Resend</li><li>Webhooks</li>
+          </ul>
+        </div>
+        <div>
+          <p class="pj-kicker">Project facts</p>
+          <div class="facts">
+            <div>
+              <ul>
+                <li><span>Role</span> Builder and operator</li>
+                <li><span>Scope</span> Five workflows · local stack</li>
+                <li><span>Deliverable</span> Running system and public repos</li>
+                <li><span>Year</span> 2026</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-cta">
+    <div class="container">
+      <p class="label label--light"><span>Next</span> Work with me</p>
+      <h2>Could your team use <em>one fewer manual step?</em></h2>
+      <p>I can map a recurring workflow, automate the preparation, and build in the approval and logging your team needs before anything goes out. Available for remote roles and freelance operations projects.</p>
+      <div class="pj-cta__actions">
+        <a class="btn btn--light" href="mailto:italiani1119@gmail.com">Email me
+          <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--outline-light" href="https://www.upwork.com/freelancers/~014712124a23782c28" target="_blank" rel="noopener">Upwork</a>
+      </div>
+      <a class="pj-cta__back" href="./">
+        <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to all projects
+      </a>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer class="pj-footer">
+  <div class="container pj-footer__inner">
+    <p>© <span id="year">2026</span> Ita Liani · Palembang, Indonesia</p>
+    <div class="pj-footer__links">
+      <a href="../index.html">Portfolio</a>
+      <a href="mailto:italiani1119@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/italiani1119-luck" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged image">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Close image">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  </button>
+  <figure class="lightbox__figure">
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
