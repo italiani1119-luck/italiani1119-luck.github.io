@@ -1130,3 +1130,6 @@
 @media (max-width: 900px){
   .pj-stages--three{ grid-template-columns: 1fr; gap: 0; }
 }
+
+/* certificate buttons */
+.cv-cert{ margin-top: 16px; }
