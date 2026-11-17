@@ -761,6 +761,75 @@ a{ color: inherit; }
 }
 .bid-visual__note .status-dot{ background: #8CBD9F; }
 
+/* growth chart card */
+.card__media--trend{
+  background: linear-gradient(160deg, #1C2825 0%, #161F1D 100%);
+  border-bottom-color: rgba(246,242,233,.12);
+}
+.trend-visual{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px 26px;
+}
+.trend-visual__head{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(246,242,233,.14);
+  font-size: .54rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(246,242,233,.5);
+}
+.trend-visual__chart{
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  padding-top: 26px;
+}
+.tbar{
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 9px;
+}
+.tbar__col{
+  width: 100%;
+  height: var(--h);
+  background: rgba(246,242,233,.22);
+  transform: scaleY(.001);
+  transform-origin: bottom;
+  transition: transform 1.1s cubic-bezier(.2,.7,.2,1);
+  transition-delay: calc(var(--i) * 60ms);
+}
+.card.is-in .tbar__col{ transform: scaleY(1); }
+.tbar--now .tbar__col{ background: var(--brass); }
+.tbar__year{
+  font-size: .52rem;
+  letter-spacing: .08em;
+  color: rgba(246,242,233,.44);
+}
+.tbar--now .tbar__year{ color: var(--brass-light); }
+.trend-visual__note{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(246,242,233,.14);
+  font-size: .57rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: rgba(246,242,233,.58);
+}
+.trend-visual__note .status-dot{ background: #8CBD9F; }
+
 /* phone pair card */
 .card__media--game{
   background:

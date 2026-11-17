@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Look Reboot — a SQL case study for Q4 planning | Ita Liani</title>
+<meta name="description" content="A SQL analysis of 125,138 apparel orders across eight years: sales growth, category winners, price outliers, repeat buyers, returns, and customer health by market — condensed into a Q4 planning brief.">
+<meta name="theme-color" content="#F6F2E9">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://italiani1119-luck.github.io/projects/look-reboot-sql.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://italiani1119-luck.github.io/projects/look-reboot-sql.html">
+<meta property="og:title" content="The Look Reboot — a SQL case study for Q4 planning | Ita Liani">
+<meta property="og:description" content="125,138 orders, six business questions, one Q4 plan. An eight-year apparel dataset queried end to end in SQL.">
+<meta property="og:image" content="https://italiani1119-luck.github.io/assets/img/og-look.png">
+<meta property="og:image:alt" content="The Look Reboot SQL case study by Ita Liani — annual sales growth chart">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Look Reboot — a SQL case study for Q4 planning | Ita Liani">
+<meta name="twitter:description" content="125,138 orders analysed in SQL: growth, categories, pricing, retention, returns, and market health — turned into a Q4 plan.">
+<meta name="twitter:image" content="https://italiani1119-luck.github.io/assets/img/og-look.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/project.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "The Look Reboot — a SQL case study for Q4 planning",
+  "url": "https://italiani1119-luck.github.io/projects/look-reboot-sql.html",
+  "description": "A SQL analysis of 125,138 apparel orders across eight years, covering sales trend, category performance, pricing outliers, first-time versus repeat buyers, returns, and customer health by market.",
+  "author": { "@type": "Person", "name": "Ita Liani", "url": "https://italiani1119-luck.github.io/" },
+  "about": ["SQL", "Data analysis", "Retail analytics", "Customer retention", "Returns analysis", "BigQuery"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="brand" href="../index.html#top" aria-label="Ita Liani — home">
+      <span class="brand__mark" aria-hidden="true">IL</span>
+      <span class="brand__text">
+        <strong>Ita Liani</strong>
+        <small>Executive support · Procurement · Automation</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="../index.html#work">Work</a>
+      <a href="index.html" aria-current="page">Projects</a>
+      <a href="../index.html#samples">Samples</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../cv.html">CV</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="btn btn--sm nav__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+    </nav>
+
+    <a class="btn btn--sm header__cv" href="../assets/docs/Ita-Liani-CV.pdf" download>Download CV</a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<article>
+
+  <header class="pj-hero">
+    <div class="container">
+      <div class="pj-hero__grid">
+        <div>
+          <nav class="pj-crumbs" aria-label="Breadcrumb">
+            <a href="../index.html">Portfolio</a>
+            <span aria-hidden="true">/</span>
+            <a href="index.html">Projects</a>
+            <span aria-hidden="true">/</span>
+            <span>The Look Reboot</span>
+          </nav>
+
+          <p class="pj-eyebrow"><span class="status-dot" aria-hidden="true"></span> SQL case study · BigQuery · Digica Mini Bootcamp · 2026</p>
+          <h1>125,000 orders. <em>Six questions for Q4.</em></h1>
+          <p class="pj-hero__lede">An eight-year apparel sales dataset, queried end to end in SQL: growth, category winners, pricing outliers, first-time versus repeat buyers, returns, and customer health across 14 markets — condensed into a planning brief a manager can act on.</p>
+
+          <div class="pj-hero__actions">
+            <a class="btn" href="#brief">Read the analysis
+              <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="../assets/docs/the-look-reboot-sql-case-2026.pdf" target="_blank" rel="noopener">Download the case deck</a>
+          </div>
+        </div>
+
+        <figure class="pj-cover look-chart">
+          <div class="trend-visual">
+            <div class="trend-visual__head"><span>Annual sales · USD</span><span>2019 — 2026</span></div>
+            <div class="trend-visual__chart">
+              <div class="tbar" style="--h:2.3%;--i:0"><span class="tbar__col"></span><span class="tbar__year">19</span></div>
+              <div class="tbar" style="--h:7.7%;--i:1"><span class="tbar__col"></span><span class="tbar__year">20</span></div>
+              <div class="tbar" style="--h:14.5%;--i:2"><span class="tbar__col"></span><span class="tbar__year">21</span></div>
+              <div class="tbar" style="--h:21.8%;--i:3"><span class="tbar__col"></span><span class="tbar__year">22</span></div>
+              <div class="tbar" style="--h:31%;--i:4"><span class="tbar__col"></span><span class="tbar__year">23</span></div>
+              <div class="tbar" style="--h:45%;--i:5"><span class="tbar__col"></span><span class="tbar__year">24</span></div>
+              <div class="tbar" style="--h:66.5%;--i:6"><span class="tbar__col"></span><span class="tbar__year">25</span></div>
+              <div class="tbar tbar--now" style="--h:100%;--i:7"><span class="tbar__col"></span><span class="tbar__year">26*</span></div>
+            </div>
+            <p class="trend-visual__note"><span class="status-dot" aria-hidden="true"></span> 2026 · 10 months · $3.73M</p>
+          </div>
+        </figure>
+      </div>
+
+      <div class="pj-metrics" aria-label="Project at a glance">
+        <div class="pj-metric"><strong>125,138</strong><span>orders analysed</span></div>
+        <div class="pj-metric"><strong>$10.8M</strong><span>sales in scope</span></div>
+        <div class="pj-metric"><strong>6</strong><span>business questions</span></div>
+        <div class="pj-metric"><strong>9.98%</strong><span>returns to sales</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="pj-toc" aria-label="Project sections">
+    <div class="container pj-toc__inner">
+      <a href="#brief">Brief</a>
+      <a href="#sales">Sales</a>
+      <a href="#categories">Categories</a>
+      <a href="#price">Price check</a>
+      <a href="#customers">Customers</a>
+      <a href="#returns">Returns</a>
+      <a href="#markets">Markets</a>
+      <a href="#method">Method</a>
+      <a href="#impact">Impact</a>
+    </div>
+  </nav>
+
+  <section class="pj-section pj-section--first" id="brief">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">01 / Brief</p>
+        <div>
+          <h2>Six questions, <em>one SQL brief.</em></h2>
+          <p class="pj-section__lede">The brief ran on theLook eCommerce, a public retail dataset on Google BigQuery: eight years of apparel orders across customers, products, and 14 markets. The task was to answer the questions a leadership team would actually ask before planning Q4 — using queries, not opinions.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-prose">
+          <p>The deck had to answer six questions in order: <strong>is growth real, and where does it come from?</strong> Which categories carry the business? Are the premium prices genuine? Who buys — first-time or repeat customers? What do returns really cost? And which markets are at risk of losing their customers?</p>
+          <p>I worked from the transaction tables out: <strong>orders</strong> and <strong>order_items</strong> for value, <strong>products</strong> for category and price, <strong>customers</strong> for geography. Every number in the brief is a query result, and every recommendation is tied to one of those results.</p>
+          <p>Two habits shaped the work. First, <strong>check the data before recommending anything</strong> — one pricing question turned into a data-quality flag. Second, <strong>state the assumptions on the page</strong>, so a manager can see exactly what a number includes and what it leaves out.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Scope and assumptions">
+          <h3>Scope and assumptions</h3>
+          <ul>
+            <li><strong>Period:</strong> 2019 to October 2026. 2026 covers ten months, so its year-on-year figure is marked partial.</li>
+            <li><strong>Orders:</strong> all statuses included in the growth and customer analyses; returns measured separately.</li>
+            <li><strong>Value:</strong> item-level <code>sale_price</code> summed from <code>order_items</code>; order value divided by order count gives AOV.</li>
+            <li><strong>Markets:</strong> countries with fewer than 100 customers are shown but not compared.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="sales">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">02 / Sales pulse</p>
+        <div>
+          <h2>Steady growth, <em>not a spike.</em></h2>
+          <p class="pj-section__lede">The first question was whether sales are spiky or structural. Grouping every order by year shows a climb from $87K in 2019 to $2.48M in 2025 — with Q4 consistently the strongest stretch.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>Annual sales and average order value. All order statuses included; AOV = sales ÷ orders. 2026 covers only ten months.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Year</th>
+                  <th scope="col" class="num">Orders</th>
+                  <th scope="col" class="num">Sales</th>
+                  <th scope="col" class="num">AOV</th>
+                  <th scope="col" class="num">Sales YoY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">2019</th><td class="num">998</td><td class="num">$86,883</td><td class="num">$87.06</td><td class="num muted">—</td></tr>
+                <tr><th scope="row">2020</th><td class="num">3,375</td><td class="num">$286,326</td><td class="num">$84.84</td><td class="num">+230%</td></tr>
+                <tr><th scope="row">2021</th><td class="num">6,339</td><td class="num">$541,002</td><td class="num">$85.34</td><td class="num">+89%</td></tr>
+                <tr><th scope="row">2022</th><td class="num">9,484</td><td class="num">$814,567</td><td class="num">$85.89</td><td class="num">+51%</td></tr>
+                <tr><th scope="row">2023</th><td class="num">13,462</td><td class="num">$1,157,340</td><td class="num">$85.97</td><td class="num">+42%</td></tr>
+                <tr><th scope="row">2024</th><td class="num">19,487</td><td class="num">$1,680,672</td><td class="num">$86.25</td><td class="num">+45%</td></tr>
+                <tr class="is-win"><th scope="row">2025</th><td class="num">28,668</td><td class="num">$2,480,432</td><td class="num">$86.52</td><td class="num">+48%</td></tr>
+                <tr><th scope="row">2026*</th><td class="num">43,165</td><td class="num">$3,731,882</td><td class="num">$86.46</td><td class="num">+50%*</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">AOV has held between $84.84 and $87.06 for eight years — growth is coming from order volume, not from a higher basket.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="What the sales data says">
+          <h3>What the data says</h3>
+          <ul>
+            <li><strong>Growth is structural.</strong> Sales rose from $87K to $2.48M between 2019 and 2025, up 45% in 2024 and 48% in 2025.</li>
+            <li><strong>Q4 is the peak.</strong> October to December runs 16–18% above the yearly average.</li>
+            <li><strong>New buyers carry it.</strong> Order value stays near $86, so growth comes from more orders, not bigger ones.</li>
+            <li><strong>Repeat is starting.</strong> Orders per buyer reached 1.12 in September 2026 — an early sign of repeat buying.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> stock up for Q4 early rather than reacting to demand.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="categories">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">03 / Categories</p>
+        <div>
+          <h2>Bet the winners, <em>fix the laggards.</em></h2>
+          <p class="pj-section__lede">Which categories deserve the Q4 stock and the campaign space? I joined item-level sales to the product table, grouped by category, and ranked 2024 by revenue.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>Top five categories by sales in 2024. Sales per item equals average price, so discounting looks minimal in this view.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">Sales</th>
+                  <th scope="col" class="num">Items</th>
+                  <th scope="col" class="num">Avg price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-win"><th scope="row">Outerwear &amp; Coats</th><td class="num">$200,295</td><td class="num">1,362</td><td class="num">$147.06</td></tr>
+                <tr><th scope="row">Jeans</th><td class="num">$192,815</td><td class="num">1,963</td><td class="num">$98.22</td></tr>
+                <tr><th scope="row">Sweaters</th><td class="num">$125,642</td><td class="num">1,692</td><td class="num">$74.26</td></tr>
+                <tr><th scope="row">Suits &amp; Sport Coats</th><td class="num">$105,565</td><td class="num">816</td><td class="num">$129.37</td></tr>
+                <tr><th scope="row">Swim</th><td class="num">$98,678</td><td class="num">1,755</td><td class="num">$56.23</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">Category names live in the product table; sales live in order items. The ranking joins them on product ID and keeps the top five by summed sale price.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Category findings">
+          <h3>What the data says</h3>
+          <ul>
+            <li><strong>Two categories carry the mix.</strong> Outerwear ($200K) and Jeans ($193K) made up about 54% of the top five's sales.</li>
+            <li><strong>Jeans nearly won.</strong> It sold 44% more items at a 33% lower price than Outerwear.</li>
+            <li><strong>Swim moves volume, not value.</strong> 1,755 items at the lowest price in the group ($56).</li>
+            <li><strong>Suits sell rarely.</strong> Only 816 items at $129 — the smallest base of the five.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> push the top two, bundle Swim to raise basket size, and investigate why Suits underperforms.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="price">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">04 / Price check</p>
+        <div>
+          <h2>Premium, <em>or a data error?</em></h2>
+          <p class="pj-section__lede">A window function adds each category's average price to every product, then ranks products by how far above that average they sit. The top 20 came back with a pattern that changed the question.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>Categories of the 20 products furthest above their category average. Price difference is retail price minus the category average across all products.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">SKUs in top 20</th>
+                  <th scope="col" class="num">Category average</th>
+                  <th scope="col" class="num">Max price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Active</th><td class="num">7</td><td class="num">$50.62</td><td class="num">$903</td></tr>
+                <tr><th scope="row">Outerwear &amp; Coats</th><td class="num">4</td><td class="num">$146.02</td><td class="num">$999</td></tr>
+                <tr><th scope="row">Shorts</th><td class="num">3</td><td class="num">$45.77</td><td class="num">$999</td></tr>
+                <tr><th scope="row">Socks</th><td class="num">2</td><td class="num">$20.42</td><td class="num">$903</td></tr>
+                <tr><th scope="row">Four other categories</th><td class="num">4</td><td class="num muted">—</td><td class="num">$903</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">Very high prices also pull their own category average up, so a plain difference-over-average ranks the extreme values first.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Pricing finding">
+          <h3>The finding</h3>
+          <ul>
+            <li><strong>14 of 20 outliers share one price.</strong> Socks, sports bras, and jackets all sit at exactly $903 — which is not a pricing strategy.</li>
+            <li><strong>It reads as a data-entry error.</strong> Different products, one round number, same result across categories.</li>
+            <li><strong>The useful output is a check.</strong> Validate those SKUs before any pricing decision is made from this table.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> fix the source records, then re-run the outlier query before repricing anything.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="customers">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">05 / Customers</p>
+        <div>
+          <h2>First-time or repeat — <em>who pays the bills?</em></h2>
+          <p class="pj-section__lede">Each customer's orders are numbered from earliest to latest. The first is labeled First, everything after is Repeat — then order count, sales, and average order value are compared side by side.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>First-time versus repeat orders across the full period. All order statuses included; orders ranked by creation date per customer.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Order type</th>
+                  <th scope="col" class="num">Orders</th>
+                  <th scope="col" class="num">Sales</th>
+                  <th scope="col" class="num">AOV</th>
+                  <th scope="col" class="num">% of sales</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-win"><th scope="row">First</th><td class="num">80,131</td><td class="num">$6,911,756</td><td class="num">$86.26</td><td class="num">63.9%</td></tr>
+                <tr><th scope="row">Repeat</th><td class="num">45,007</td><td class="num">$3,912,680</td><td class="num">$86.93</td><td class="num">36.1%</td></tr>
+                <tr><th scope="row">Total</th><td class="num">125,138</td><td class="num">$10,824,435</td><td class="num">$86.50</td><td class="num">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">A first order is a customer's earliest recorded order. Repeat orders average 0.56 per customer — a sign the second purchase is still the hard one.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Customer findings">
+          <h3>What the data says</h3>
+          <ul>
+            <li><strong>New customers dominate.</strong> First orders bring 63.9% of sales: 80,131 orders and $6.9M.</li>
+            <li><strong>Repeat spend is flat.</strong> AOV is $86.26 for first orders and $86.93 for repeat — almost identical.</li>
+            <li><strong>Repeat customers return, not upsell.</strong> About 0.56 repeat orders per customer.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> protect acquisition, then use bundles or loyalty offers to lift the second and third order.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="returns">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">06 / Returns</p>
+        <div>
+          <h2>The hidden cost: <em>$1.06M in returns.</em></h2>
+          <p class="pj-section__lede">Returned orders are grouped by category; the return rate is returned value divided by that category's sales. The result is not one bad category — it is a company-wide pattern.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <p class="pj-scroll-hint">Swipe the table sideways to see every column.</p>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>Top five of 26 categories by returned value. Some categories overlap, for example Suits and Suits &amp; Sport Coats.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Category</th>
+                  <th scope="col" class="num">Returned items</th>
+                  <th scope="col" class="num">Returned value</th>
+                  <th scope="col" class="num">Return rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-win"><th scope="row">Jeans</th><td class="num">1,229</td><td class="num">$124,071</td><td class="num">9.98%</td></tr>
+                <tr><th scope="row">Outerwear &amp; Coats</th><td class="num">862</td><td class="num">$122,085</td><td class="num">9.21%</td></tr>
+                <tr><th scope="row">Sweaters</th><td class="num">1,035</td><td class="num">$80,194</td><td class="num">9.57%</td></tr>
+                <tr><th scope="row">Suits &amp; Sport Coats</th><td class="num">490</td><td class="num">$66,291</td><td class="num">9.94%</td></tr>
+                <tr><th scope="row">Swim</th><td class="num">1,090</td><td class="num">$64,001</td><td class="num">9.79%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">Returns are identified by order status. Category and item value come from the product and order-item tables, joined through the order.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Returns findings">
+          <h3>What the data says</h3>
+          <ul>
+            <li><strong>The rate is flat.</strong> Most categories sit between 9% and 10%, so this is not one defective product line.</li>
+            <li><strong>The money is in the big sellers.</strong> Jeans and Outerwear alone make up about 23% of returned value.</li>
+            <li><strong>Suits run highest.</strong> An 11.5% rate, but from a much smaller sales base.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> start fit and quality checks on Jeans and Outerwear, and identify which models need a redesign.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="markets">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">07 / Markets</p>
+        <div>
+          <h2>Eight in ten customers <em>have gone quiet.</em></h2>
+          <p class="pj-section__lede">For each customer, days since the latest order decide the group: active (30 days or fewer), passive (31–90), or churned (over 90). The percentages below are within each country.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div>
+          <div class="pj-table-wrap">
+            <table class="pj-table">
+              <caption>Customer health by market as of 25 October 2026. Only customers with at least one order; five largest countries plus the total.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Country</th>
+                  <th scope="col" class="num">Customers</th>
+                  <th scope="col" class="num">Active</th>
+                  <th scope="col" class="num">Passive</th>
+                  <th scope="col" class="num">Churned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">China</th><td class="num">27,190</td><td class="num">9.8%</td><td class="num">10.0%</td><td class="num">80.2%</td></tr>
+                <tr><th scope="row">United States</th><td class="num">18,065</td><td class="num">10.2%</td><td class="num">10.2%</td><td class="num">79.6%</td></tr>
+                <tr><th scope="row">Brasil</th><td class="num">11,765</td><td class="num">9.8%</td><td class="num">9.9%</td><td class="num">80.3%</td></tr>
+                <tr><th scope="row">South Korea</th><td class="num">4,293</td><td class="num">9.4%</td><td class="num">9.2%</td><td class="num">81.4%</td></tr>
+                <tr><th scope="row">France</th><td class="num">3,741</td><td class="num">10.4%</td><td class="num">10.1%</td><td class="num">79.5%</td></tr>
+                <tr class="is-win"><th scope="row">All 14 countries</th><td class="num">80,089</td><td class="num">10.0%</td><td class="num">10.0%</td><td class="num">80.0%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="pj-note">Colombia (7 customers) and Austria (1) are too small to compare and are excluded from the read.</p>
+        </div>
+
+        <aside class="pj-panel" aria-label="Market findings">
+          <h3>What the data says</h3>
+          <ul>
+            <li><strong>The pattern is global.</strong> Churn is 79–81% in all 12 markets with more than 100 customers.</li>
+            <li><strong>Only one in five is warm.</strong> 10% active and 10% passive across the base.</li>
+            <li><strong>Win-back starts here.</strong> 8,042 passive customers are the easiest to recover, mostly in China, the US, and Brazil.</li>
+          </ul>
+          <p class="pj-note"><strong>Recommendation:</strong> build a retention programme that covers every market, not only the largest three.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="method">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">08 / Method</p>
+        <div>
+          <h2>Joins, groups, <em>and window functions.</em></h2>
+          <p class="pj-section__lede">Four tables, one BigQuery dataset. The work is ordinary SQL done carefully: join on the right keys, aggregate at the right grain, and never average an average.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid">
+        <div>
+          <p class="pj-kicker">Category ranking</p>
+          <pre class="pj-code"><code><span class="kw">WITH</span> category_sales <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> p.category, oi.sale_price, p.retail_price
+  <span class="kw">FROM</span> `bigquery-public-data.thelook_ecommerce.order_items` <span class="kw">AS</span> oi
+  <span class="kw">JOIN</span> `bigquery-public-data.thelook_ecommerce.products` <span class="kw">AS</span> p
+    <span class="kw">ON</span> oi.product_id = p.id
+  <span class="kw">WHERE</span> <span class="kw">EXTRACT</span>(<span class="kw">YEAR</span> <span class="kw">FROM</span> oi.created_at) = 2024
+)
+<span class="kw">SELECT</span> category,
+       <span class="kw">ROUND</span>(<span class="kw">SUM</span>(sale_price), 2)   <span class="kw">AS</span> sales,
+       <span class="kw">COUNT</span>(*)                    <span class="kw">AS</span> items,
+       <span class="kw">ROUND</span>(<span class="kw">AVG</span>(retail_price), 2) <span class="kw">AS</span> avg_price
+<span class="kw">FROM</span> category_sales
+<span class="kw">GROUP BY</span> category
+<span class="kw">ORDER BY</span> sales <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> 5;</code></pre>
+        </div>
+        <div>
+          <p class="pj-kicker">Price outliers</p>
+          <pre class="pj-code"><code><span class="kw">WITH</span> product_prices <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> id <span class="kw">AS</span> product_id, name, category, retail_price,
+         <span class="kw">AVG</span>(retail_price) <span class="kw">OVER</span> (
+           <span class="kw">PARTITION BY</span> category
+         ) <span class="kw">AS</span> avg_category_price
+  <span class="kw">FROM</span> `bigquery-public-data.thelook_ecommerce.products`
+)
+<span class="kw">SELECT</span> product_id,
+       name,
+       category,
+       retail_price,
+       <span class="kw">IF</span>(retail_price &gt; avg_category_price, 1, 0) <span class="kw">AS</span> is_above_avg,
+       <span class="kw">ROUND</span>(retail_price - avg_category_price, 2) <span class="kw">AS</span> delta
+<span class="kw">FROM</span> product_prices
+<span class="kw">ORDER BY</span> delta <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> 20;</code></pre>
+        </div>
+        <div class="pj-code--wide">
+          <p class="pj-kicker">First-time vs repeat, without double counting</p>
+          <pre class="pj-code"><code><span class="kw">WITH</span> order_value <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> order_id, <span class="kw">SUM</span>(sale_price) <span class="kw">AS</span> order_total
+  <span class="kw">FROM</span> `bigquery-public-data.thelook_ecommerce.order_items`
+  <span class="kw">GROUP BY</span> order_id
+),
+ranked <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> order_id,
+         <span class="kw">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+           <span class="kw">PARTITION BY</span> user_id
+           <span class="kw">ORDER BY</span> created_at, order_id
+         ) <span class="kw">AS</span> order_seq
+  <span class="kw">FROM</span> `bigquery-public-data.thelook_ecommerce.orders`
+)
+<span class="kw">SELECT</span> <span class="kw">CASE</span> <span class="kw">WHEN</span> r.order_seq = 1 <span class="kw">THEN</span> <span class="cm">'First'</span>
+            <span class="kw">ELSE</span> <span class="cm">'Repeat'</span> <span class="kw">END</span> <span class="kw">AS</span> order_type,
+       <span class="kw">COUNT</span>(*) <span class="kw">AS</span> orders,
+       <span class="kw">ROUND</span>(<span class="kw">SUM</span>(v.order_total), 2) <span class="kw">AS</span> sales,
+       <span class="kw">ROUND</span>(<span class="kw">SUM</span>(v.order_total) / <span class="kw">COUNT</span>(*), 2) <span class="kw">AS</span> aov
+<span class="kw">FROM</span> ranked <span class="kw">AS</span> r
+<span class="kw">JOIN</span> order_value <span class="kw">AS</span> v
+  <span class="kw">ON</span> v.order_id = r.order_id
+<span class="kw">GROUP BY</span> order_type;</code></pre>
+          <p class="pj-note">Order value is aggregated before the join. Joining items directly would repeat each order row and inflate both the order count and the AOV denominator.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div class="pj-panel">
+          <h3>Data-quality checks</h3>
+          <ul>
+            <li><strong>One impossible pattern.</strong> 14 of 20 price outliers at $903 triggered a source check before any pricing conclusion.</li>
+            <li><strong>Overlapping categories.</strong> Suits and Suits &amp; Sport Coats both appear in returns, so the two are read separately, not summed.</li>
+            <li><strong>Partial years.</strong> 2026 is ten months; its year-on-year figure is labelled and never compared to a full year without the caveat.</li>
+          </ul>
+        </div>
+
+        <div class="pj-dark">
+          <h3>Why the read order matters</h3>
+          <ul>
+            <li><span>01</span><div><strong>Trend first.</strong> A category decision made on a spiky baseline is a guess.</div></li>
+            <li><span>02</span><div><strong>Then mix.</strong> Category ranking shows where volume and value actually sit.</div></li>
+            <li><span>03</span><div><strong>Then people.</strong> Customer segments and market health decide what to do with the mix.</div></li>
+            <li><span>04</span><div><strong>Then cost of failure.</strong> Returns turn the plan into a margin question.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pj-section" id="impact">
+    <div class="container">
+      <div class="pj-section__head">
+        <p class="pj-no">09 / Impact</p>
+        <div>
+          <h2>Six answers, <em>one plan.</em></h2>
+          <p class="pj-section__lede">The deliverable was not a pile of query results. Each question ends with a recommendation a commercial team can act on — and the caveats that make it safe to act.</p>
+        </div>
+      </div>
+
+      <div class="pj-grid pj-grid--aside">
+        <div class="pj-deliverables">
+          <div class="pj-deliverable"><strong>Eight-year sales baseline</strong>Growth from $87K to $2.48M, with Q4 16–18% above average — a stock-up signal rather than a discount signal.</div>
+          <div class="pj-deliverable"><strong>A two-category bet</strong>Outerwear and Jeans generate about 54% of top-five sales; Jeans does it at a 33% lower price.</div>
+          <div class="pj-deliverable"><strong>A data-quality flag</strong>14 of 20 price outliers at exactly $903, caught before the number reached a pricing decision.</div>
+          <div class="pj-deliverable"><strong>A retention case</strong>63.9% of sales come from first orders, and 80% of all customers are churned — with 8,042 passive customers to win back.</div>
+          <div class="pj-deliverable"><strong>The true cost of returns</strong>$1.06M, or 9.98% of sales, spread evenly across 9–10% in almost every category.</div>
+          <div class="pj-deliverable"><strong>A market-wide plan</strong>Churn is 79–81% in every market with more than 100 customers, so retention cannot be a single-country pilot.</div>
+        </div>
+
+        <aside class="pj-panel" aria-label="What this shows a hiring team">
+          <h3>What this shows a hiring team</h3>
+          <ul>
+            <li>Writes SQL that answers a business question, not just a syntax exercise.</li>
+            <li>Uses joins, aggregations, and window functions at the right grain.</li>
+            <li>Catches and escalates a data-quality problem instead of reporting it as insight.</li>
+            <li>Turns analysis into recommendations with risks and assumptions attached.</li>
+            <li>Can present results to a manager without a data background.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="pj-grid pj-mt">
+        <div>
+          <p class="pj-kicker">Deliverable</p>
+          <div class="pj-flow">
+            <div class="pj-flow__head">
+              <span class="pj-flow__label">The case deck</span>
+              <span class="pj-flow__note">8 pages · SQL · 2026</span>
+            </div>
+            <div class="pj-flow__steps">
+              <div class="pj-flow__step">
+                <b>Six questions</b>
+                <small>growth, mix, price, retention, returns, markets</small>
+              </div>
+              <div class="pj-flow__step">
+                <b>One answer each</b>
+                <small>table, insight, and recommendation</small>
+              </div>
+              <div class="pj-flow__step pj-flow__step--gate">
+                <b>Query logic</b>
+                <small>joins, window functions, segmentation</small>
+              </div>
+              <div class="pj-flow__step">
+                <b>Q4 plan</b>
+                <small>stock, bundle, retention, fit checks</small>
+              </div>
+            </div>
+            <p class="pj-flow__states"><span>2019</span><i>→</i><span>2026</span><i>→</i><span>125,138 orders</span><i>→</i><span>6 answers</span></p>
+            <p class="pj-flow__title">The full deck is available as a PDF. It includes the summary tables shown on this page and the original copy of the analysis.</p>
+          </div>
+          <p class="pj-mt"><a class="btn btn--sm" href="../assets/docs/the-look-reboot-sql-case-2026.pdf" target="_blank" rel="noopener">Open the case deck (PDF)
+            <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a></p>
+
+          <p class="pj-kicker">Tools used</p>
+          <ul class="chips">
+            <li>BigQuery SQL</li><li>Joins</li><li>Window functions</li><li>Segmentation</li><li>Data-quality checks</li><li>Case presentation</li>
+          </ul>
+        </div>
+
+        <aside class="pj-panel" aria-label="Project facts">
+          <h3>Project facts</h3>
+          <ul>
+            <li><strong>Role:</strong> Data analyst (case study)</li>
+            <li><strong>Scope:</strong> 125,138 orders · 8 years · 14 markets</li>
+            <li><strong>Deliverable:</strong> Analysis deck with query logic</li>
+            <li><strong>Programme:</strong> Digica Mini Bootcamp, Data Analyst with SQL</li>
+            <li><strong>Year:</strong> 2026</li>
+          </ul>
+        </aside>
+      </div>
+
+      <blockquote class="pj-quote">The query is only half the job. The other half is telling a manager what to do with the answer — and where it might be wrong.</blockquote>
+    </div>
+  </section>
+
+  <section class="pj-cta">
+    <div class="container">
+      <p class="label label--light"><span>Next</span> Work with me</p>
+      <h2>Need someone who can <em>read the data and the business?</em></h2>
+      <p>I can turn order-level data into a clear picture of growth, margin risk, and retention — and present it in a way a team can act on. Available for remote roles and freelance research or analysis projects.</p>
+      <div class="pj-cta__actions">
+        <a class="btn btn--light" href="mailto:italiani1119@gmail.com">Email me
+          <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--outline-light" href="https://www.upwork.com/freelancers/~014712124a23782c28" target="_blank" rel="noopener">Upwork</a>
+      </div>
+      <a class="pj-cta__back" href="index.html">
+        <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to all projects
+      </a>
+    </div>
+  </section>
+
+</article>
+</main>
+
+<footer class="pj-footer">
+  <div class="container pj-footer__inner">
+    <p>© <span id="year">2026</span> Ita Liani · Palembang, Indonesia</p>
+    <div class="pj-footer__links">
+      <a href="../index.html">Portfolio</a>
+      <a href="mailto:italiani1119@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/ita-liani/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/italiani1119-luck" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
